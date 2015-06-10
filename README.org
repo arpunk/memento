@@ -1,0 +1,27 @@
+* Memento
+** Introduction
+
+   Memento is an mnesia wrapper for LFE
+
+** Installation
+
+   Just add it to your =rebar.config= deps:
+
+   #+BEGIN_SRC erlang
+   {deps, [
+    ...
+    {memento, ".*",
+      {git, "git@github.com:arpunk/memento.git", "master"}}
+      ]}.
+   #+END_SRC
+
+   And then do the usual:
+
+   #+BEGIN_SRC sh
+   $ rebar get-deps
+   $ rebar compile
+   #+END_SRC
+
+** Usage
+
+   Add content to me here!
