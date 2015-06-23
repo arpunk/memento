@@ -24,7 +24,7 @@
           (clear 1)
           (member? 2)
           (count 1)
-          (read 3) (read! 2)
+          (read 2) (read 3) (read! 2)
           (read-at 3) (read-at! 3)
           (keys 1) (keys! 1)
           (at! 2)
@@ -160,6 +160,11 @@ NEW-NAME"
 (defun count (table)
   "Get the number of records in the given TABLE"
   (info table 'size))
+
+(defun read (table key)
+  "Read records from the given TABLE with the given KEY and a 'read
+lock"
+  (read table key 'read))
 
 (defun read (table key lock)
   "Read records from the given TABLE with the given KEY and a LOCK"
