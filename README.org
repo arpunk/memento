@@ -24,4 +24,35 @@
 
 ** Usage
 
-   Add content to me here!
+   It's very easy!
+
+   #+BEGIN_SRC lisp
+   (defmodule testing-memento
+     (import
+       (from memento-table (write 2))))
+
+   (include-lib "memento/include/tables.lfe")
+   (include-lib "memento/include/transaction.lfe")
+
+   ;; First time?
+   (memento:stop)
+   (memento-schema:create)
+   (memento:start)
+
+   ;; Let's define some records
+   (defrecord person
+     name
+     age)
+
+   ;; Now let's define our table properties
+   (set person-opts `[#(type set)
+                      #(disc_copies [,(node)])])
+
+   ;; Once we are ready we can create the table
+   (create-table person person-opts)
+
+   ;; And the fun starts
+   (with-transaction
+     (write 'person (make-person name "John Doe"
+                                 age 31)))
+   #+END_SRC
