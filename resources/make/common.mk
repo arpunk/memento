@@ -42,7 +42,7 @@ get-version:
 
 get-deps:
 	@echo "Getting dependencies ..."
-	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) download deps
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) rebar get-deps
 
 clean-ebin:
 	@echo "Cleaning ebin dir ..."
