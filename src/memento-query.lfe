@@ -46,22 +46,22 @@
   "Reduces a QUERY given an initial ACC, a reduce FN and some OPTS."
   (qlc:fold fn acc query opts))
 
-(defun keysort (query position)
+(defun keysort (query pos)
   "Sorts the keys of a a QUERY with the given POSITION."
   (qlc:keysort pos query))
 
-(defun keysort (query posision opts)
+(defun keysort (query pos opts)
   "Sorts the keys of a QUERY with the given POSITION and some OPTS."
   (qlc:keysort pos query opts))
 
 (defun next (cursor)
   "Returns the next answer to a query CURSOR."
-  (qlc:next_answers query))
+  (qlc:next_answers cursor))
 
 (defun next (cursor records)
   "Returns the next answer to a query CURSOR and limits the result to
 RECORDS."
-  (qlc:next_answers query records))
+  (qlc:next_answers cursor records))
 
 (defun sort (query)
   "Sorts the given QUERY."
