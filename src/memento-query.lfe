@@ -11,8 +11,9 @@
 
 (include-lib "stdlib/include/qlc.hrl")
 
-(defun select (table match-specs)
-  (mnesia:select table match-specs))
+(defun select (table match-spec)
+  "Matches the objects in TABLE using a MATCH-SPEC."
+  (mnesia:select table match-spec))
 
 (defun append (query)
   "Appends a QUERY and returns a query handler."
