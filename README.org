@@ -29,9 +29,10 @@
    #+BEGIN_SRC lisp
    (defmodule testing-memento
      (import
-       (from memento-table (write 2))))
+       (from memento-table (write 2))
+       (from memento-query (select 2))))
 
-   (include-lib "memento/include/tables.lfe")
+   (include-lib "memento/include/table.lfe")
    (include-lib "memento/include/transaction.lfe")
 
    ;; First time?
@@ -53,6 +54,12 @@
 
    ;; And the fun starts
    (with-transaction
-     (write 'person (make-person name "John Doe"
-                                 age 31)))
+     (write 'person (make-person name "John Doe" age 31)))
+
+   ;; Querying
+   (with-transaction
+     (select 'person
+             (match-spec
+               (((tuple _ name age)) (when (> age 20))
+                 (tuple 'ok name)))))
    #+END_SRC
