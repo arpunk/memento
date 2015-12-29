@@ -10,16 +10,15 @@
    #+BEGIN_SRC erlang
    {deps, [
     ...
-    {memento, ".*",
-      {git, "git@github.com:arpunk/memento.git", "master"}}
-      ]}.
+    {memento, {git, "git@github.com:arpunk/memento.git", {branch, "master"}}}
+    ...
+   ]}.
    #+END_SRC
 
    And then do the usual:
 
    #+BEGIN_SRC sh
-   $ rebar get-deps
-   $ rebar compile
+   $ rebar3 compile
    #+END_SRC
 
 ** Usage
