@@ -2,6 +2,7 @@
   (export (append 1) (append 2)
           (cursor 1) (cursor 2)
           (delete-cursor 1)
+          (select 2)
           (eval 1) (eval 2)
           (fold 3) (fold 4)
           (keysort 2) (keysort 3)
@@ -9,6 +10,9 @@
           (sort 1) (sort 2)))
 
 (include-lib "stdlib/include/qlc.hrl")
+
+(defun select (table match-specs)
+  (mnesia:select table match-specs))
 
 (defun append (query)
   "Appends a QUERY and returns a query handler."
